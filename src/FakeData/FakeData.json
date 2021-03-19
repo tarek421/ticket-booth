@@ -1,0 +1,21 @@
+[{
+    "id": 1,
+    "name": "ONE TIME TICKET",
+    "image": "https://files.fm/thumb_show.php?i=8dxju6wqp",
+    "price": 100
+  }, {
+    "id": 2,
+    "name": "ONE DAY PASS",
+    "image": "https://files.fm/thumb_show.php?i=fcygzgped",
+    "price": 500
+  }, {
+    "id": 3,
+    "name": "MONTHLY PASS",
+    "image": "https://files.fm/thumb_show.php?i=cttueat92",
+    "price": 1500
+  }, {
+    "id": 4,
+    "name": "ANNUAL PASS",
+    "image": "https://files.fm/thumb_show.php?i=j4sgyx8q2",
+    "price": 9000
+  }]
