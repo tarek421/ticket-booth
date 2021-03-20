@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [loggedInUser] = useContext(userContext);
+    console.log(loggedInUser)
+    const {displayName} = loggedInUser;
+    const nameStyle = {marginLeft: '20px', color: '#f1e5e5',marginTop: '10px'}
     return (
         <Navbar bg="primary" variant="dark">
             <div className='container'>
@@ -19,6 +22,7 @@ const Header = () => {
                 <Form inline>
                     <Button as={Link} to='/login' variant="outline-light">Login</Button>
                     <p>{loggedInUser.name}</p>
+                    <p style={nameStyle}>{displayName}</p>
                 </Form>
             </div>
         </Navbar>

@@ -7,8 +7,8 @@ import { useHistory } from 'react-router';
 export const Tickets = ({ticket}) => {
 
     const history = useHistory()
-      const handleBook = (name) => {
-          history.push(`/ticket/${name}`);
+      const handleBook = (price) => {
+          history.push(`/destination/${price}`);
       }
     const card = { 
         width: '15rem',
@@ -22,8 +22,8 @@ export const Tickets = ({ticket}) => {
     return (
         <Card style={card} className='mx-4' border="info">
             <Card.Body>
-                <Card.Title>{ticket.name}</Card.Title>
-                <button onClick={() => handleBook(ticket.name)}>bye now</button>
+                <Card.Title classdName="card-title">{ticket.name}</Card.Title>
+                <button className="card-btn" onClick={() => handleBook(ticket.price)}>bye now</button>
             </Card.Body>
             <Card.Footer className='card-footer'>টা {ticket.price}</Card.Footer>
         </Card>

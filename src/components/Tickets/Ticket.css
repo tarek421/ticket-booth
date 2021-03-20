@@ -11,3 +11,11 @@
     background-color: rgb(0 0 0 / 0%);
     border-top: 1px solid rgb(0 0 0 / 0%);
 }
+.card-btn{
+    border-radius: 50px;
+    width: 120px;
+}
+.card-title{
+    font-size: 35px;
+    font-weight: 700;
+}
