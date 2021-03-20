@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Button, Form } from 'react-bootstrap';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
+import { userContext } from '../../App';
+import { useHistory, useLocation } from 'react-router';
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig); 
 }else {
@@ -11,7 +13,7 @@ if (!firebase.apps.length) {
  }
 
 const Login = () => {
-    const [newUser, setNewUser] = useState(false);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -20,6 +22,9 @@ const Login = () => {
         success: false,
     })
     var provider = new firebase.auth.GoogleAuthProvider();
+    let history = useHistory();
+    let location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
     const handleFacebook = () => {
         firebase.auth()
             .signInWithPopup(provider)
@@ -27,7 +32,9 @@ const Login = () => {
                 // var credential = result.credential;
                 // var token = credential.accessToken;
                 const {displayName, email} = result.user;
-                console.log(displayName, email)
+                const signInUser = {name:displayName, email}
+                setLoggedInUser(signInUser);
+                history.replace(from);
                 // ...
             }).catch((error) => {
                 var errorCode = error.code;
@@ -56,6 +63,7 @@ const Login = () => {
     return (
         <>
             <Form className='container login-form'>
+                {loggedInUser.name}
                 <h5>Create an account</h5>
                 <Form.Group onBlur={handleChange} controlId="formBasicName">
                     <Form.Control className='form-input' type="text" placeholder="User Name" />

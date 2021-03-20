@@ -7,10 +7,11 @@ import NoMatch from './components/NoMatch/NoMatch';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 import { createContext, useState } from 'react';
 import Destination from './components/Destination/Destination';
+import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 
 export const userContext = createContext();
 
@@ -19,29 +20,33 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <>
-    <userContext.Provider value={[loggedInUser, setLoggedInUser]}> 
-    <Header />
+    <userContext.Provider value={[loggedInUser, setLoggedInUser]}>  
     <div className="container">
     <Router>
-      <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+    <Header />
+    <Switch>
+ 
+      
           <Route path="/home">
-            <Home />
-          </Route>
+              <Home />
+            </Route>
           <Route path="/tickets">
             <Tickets />
           </Route>
-          <Route path="/ticket/:name">
+          <PrivetRoute path="/ticket/:name">
             <Destination />
-          </Route>
+          </PrivetRoute>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route exact path="/">
+            <Home />
           </Route>
           <Route path="*">
             <NoMatch />
           </Route>
+      
+      
       </Switch>
     </Router>
     </div>
