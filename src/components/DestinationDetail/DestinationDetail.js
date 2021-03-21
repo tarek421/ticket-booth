@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import map from '../../images/map.png'
-import { useHistory, useParams } from 'react-router-dom';
 import { Button, Card, CardActions, CardContent, makeStyles, Typography } from '@material-ui/core';
+import { useParams } from 'react-router';
+import map from '../../images/map.png'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 275,
@@ -34,54 +34,39 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Destination = () => {
-    const [ticketInfo, setTicketInfo] = useState({});
+
+const DestinationDetail = () => {
     const classes = useStyles();
-    const { price } = useParams();
+    const { ticketInfo } = useParams();
     console.log(ticketInfo)
-
-    const handleChangeFrom = event => {
-        const newUserInfo = { ...ticketInfo };
-        newUserInfo[event.target.name] = event.target.value;
-        setTicketInfo(newUserInfo);
-    }
-
-    const history = useHistory()
-    const handleDestination = (ticketInfo) => {
-        history.push(`/destinationDetail/${ticketInfo}`);
-    }
-
     return (
         <div className='container'>
             <div style={{ marginTop: '50px' }} className='row'>
                 <div className='col-md-3 col-sm-12'>
                     <Card>
-                        <p>price:{price}</p>
                         <CardContent>
                             <Typography className={classes.title} color="textSecondary" gutterBottom>
                                 Picked form
                         </Typography>
                             <Typography>
-                                <input style={{width:'100%'}} onBlur={handleChangeFrom} type="text" name="from" id="1" />
+                                <h2>Dhaka</h2>
+                                <h2>{ticketInfo.from}</h2>
                             </Typography>
                             <Typography className={classes.title} color="textSecondary">
                                 Picked to
                         </Typography>
                             <Typography>
-                                <input style={{width:'100%'}} onBlur={handleChangeFrom} type="text" name="to" id="2" />
+                                <h2>Shylhet</h2>
                             </Typography>
                         </CardContent>
-                        <CardActions>
-                            <Button style={{background:'cyan'}} onClick={() => handleDestination(ticketInfo)} size="small">search</Button>
-                        </CardActions>
                     </Card>
                 </div>
-                <div className='col-md-9 col-sm-12' style={{ gridColumnEnd: 'span 9', height: '480px' }}>
-                    <img style={{ height: '100%', width: '100%' }} src={map} alt="" />
+                <div className='col-md-9 col-sm-12' style={{height:'480px' }}>
+                    <img style={{height:'100%',width:'100%'}} src={map} alt="" />
                 </div>
             </div>
         </div>
     );
 };
 
-export default Destination;
+export default DestinationDetail;

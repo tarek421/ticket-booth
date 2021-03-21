@@ -13,7 +13,7 @@ if (!firebase.apps.length) {
 }
 
 const Login = () => {
-    const [setLoggedInUser] = useContext(userContext);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
         name: '',
@@ -57,11 +57,25 @@ const Login = () => {
             const passwordValidate2 = /\d{1}/.test(event.target.value);
             isFeildValid = (passwordValidate && passwordValidate2)
         }
+        if (event.target.name === 'confirm_password') {
+            const passwordValidate = event.target.value.length >= 6;
+            const passwordValidate2 = /\d{1}/.test(event.target.value);
+            isFeildValid = (passwordValidate && passwordValidate2)
+        }
+        if ("password" !== "confirm_password") {
+          
+            if ("password" != "confirm_password") {
+              const isFeildValid = false;
+              const errors = "Passwords don't match.";
+              console.log(isFeildValid, errors)
+            }
+          }
         if (isFeildValid) {
             const newUserInfo = { ...user };
             newUserInfo[event.target.name] = event.target.value;
             setUser(newUserInfo)
         }
+
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -145,6 +159,12 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name='password' onBlur={handleChange} type="password" placeholder="Password" required />
                 </Form.Group>
+
+                {newUser && <Form.Group controlId="formBasicConfirmPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control name='confirm_password' onBlur={handleChange} type="password" placeholder="Confirm Your Password" required />
+                </Form.Group>}
+
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
