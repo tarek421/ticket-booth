@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, makeStyles, Typography } from '@material-ui/core';
+import { Card, CardContent, makeStyles, Typography } from '@material-ui/core';
 import { useParams } from 'react-router';
 import map from '../../images/map.png'
 

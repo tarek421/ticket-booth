@@ -22,7 +22,7 @@ const Login = () => {
         error: '',
         success: false,
     })
-    console.log(user.name)
+    console.log(user.name, loggedInUser)
     var provider = new firebase.auth.GoogleAuthProvider();
     let history = useHistory();
     let location = useLocation();

@@ -34,9 +34,9 @@ function App() {
               <Route path="/destinationDetail/:ticketInfo">
                 <DestinationDetail />
               </Route>
-              <Route path="/destination/:price">
+              <PrivetRoute path="/destination/:price">
                 <Destination />
-              </Route>
+              </PrivetRoute>
               <Route path="/login">
                 <Login />
               </Route>

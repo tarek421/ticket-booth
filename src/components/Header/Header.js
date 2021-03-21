@@ -15,7 +15,6 @@ const Header = () => {
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/">Blog</Nav.Link>
                         <Nav.Link as={Link} to="/">Contact</Nav.Link>
-                        <Nav.Link as={Link} to="/destinationDetail">DD</Nav.Link>
                     </Nav>
                 
                 <Form inline>
