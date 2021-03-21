@@ -1,6 +1,7 @@
 import { Card, CardContent, makeStyles, Typography } from '@material-ui/core';
 import { useParams } from 'react-router';
-import map from '../../images/map.png'
+import map from '../../images/map.png';
+import ticket from '../../images/tickets.png'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,7 +45,7 @@ const DestinationDetail = () => {
             <div style={{ marginTop: '50px' }} className='row'>
                 <div className='col-md-3 col-sm-12'>
                     <Card>
-                        <CardContent>
+                        <CardContent  style={{background:'orange'}}>
                             <Typography className={classes.title} color="textSecondary" gutterBottom>
                                 Picked form
                         </Typography>
@@ -59,6 +60,18 @@ const DestinationDetail = () => {
                                 <h2>Shylhet</h2>
                             </Typography>
                         </CardContent>
+                        <div className="ticket d-flex">
+                            <img style={{height:'50px'}} src={ticket} alt=""/>
+                            <h4 style={{marginLeft: '20px'}}>ticket-1 </h4><span style={{marginLeft: '70px'}}>$67</span>
+                        </div>
+                        <div className="ticket d-flex">
+                            <img style={{height:'50px'}} src={ticket} alt=""/>
+                            <h4 style={{marginLeft: '20px'}}>ticket-2 </h4><span style={{marginLeft: '70px'}}>$67</span>
+                        </div>
+                        <div className="ticket d-flex">
+                            <img style={{height:'50px'}} src={ticket} alt=""/>
+                            <h4 style={{marginLeft: '20px'}}>ticket-3 </h4><span style={{marginLeft: '70px'}}>$67</span>
+                        </div>
                     </Card>
                 </div>
                 <div className='col-md-9 col-sm-12' style={{height:'480px' }}>
