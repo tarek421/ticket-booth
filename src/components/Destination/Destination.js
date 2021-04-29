@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import map from '../../images/map.png'
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Card, CardActions, CardContent, makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +34,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+const containerStyle = {
+    width: '100%',
+    height: '100%'
+};
+
+const center = {
+    lat: -3.745,
+    lng: -38.523
+};
+
+
 const Destination = () => {
     const [ticketInfo, setTicketInfo] = useState({});
     const classes = useStyles();
@@ -62,23 +74,34 @@ const Destination = () => {
                                 Picked form
                         </Typography>
                             <Typography>
-                                <input style={{width:'100%'}} onBlur={handleChangeFrom} type="text" name="from" id="1" />
+                                <input style={{ width: '100%' }} onBlur={handleChangeFrom} type="text" name="from" id="1" />
                             </Typography>
                             <Typography className={classes.title} color="textSecondary">
                                 Picked to
                         </Typography>
                             <Typography>
-                                <input style={{width:'100%'}} onBlur={handleChangeFrom} type="text" name="to" id="2" />
+                                <input style={{ width: '100%' }} onBlur={handleChangeFrom} type="text" name="to" id="2" />
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button style={{background:'cyan'}} onClick={() => handleDestination(ticketInfo)} size="small">search</Button>
+                            <Button style={{ background: 'cyan' }} onClick={() => handleDestination(ticketInfo)} size="small">search</Button>
                         </CardActions>
                     </Card>
                 </div>
                 <div className='col-md-9 col-sm-12' style={{ gridColumnEnd: 'span 9', height: '480px' }}>
-                    <img style={{ height: '100%', width: '100%' }} src={map} alt="" />
-                </div>
+                    <LoadScript
+                        googleMapsApiKey="AIzaSyDWNv9HdzuWOLsj3Zzu3EWGxVjgDW0gpUc"
+                    >
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={center}
+                            zoom={5}
+                        >
+                            { /* Child components, such as markers, info windows, etc. */}
+                            <></>
+                        </GoogleMap>
+                    </LoadScript>
+                    </div>
             </div>
         </div>
     );
