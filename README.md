@@ -1,6 +1,6 @@
 # Ticket Booth
 
-[Live Website](https://ticket-booth-df745.web.app/).
+[Live Website](https://ticket-booth-df745.web.app/)
 
 (https://user-images.githubusercontent.com/76926399/116672908-88e00900-a9c4-11eb-979b-b2bd3db967dc.png)
 
