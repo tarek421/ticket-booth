@@ -2,7 +2,7 @@
 
 [Live Website](https://ticket-booth-df745.web.app/).
 
-![world-traveler]![books-store]![ticket-booth](https://user-images.githubusercontent.com/76926399/116672908-88e00900-a9c4-11eb-979b-b2bd3db967dc.png)
+[ticket-booth](https://user-images.githubusercontent.com/76926399/116672908-88e00900-a9c4-11eb-979b-b2bd3db967dc.png)
 
 ## This project has been used Technology
 
